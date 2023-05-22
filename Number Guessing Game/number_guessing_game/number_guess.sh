@@ -29,7 +29,7 @@ COUNT=0
 while true; do
   read GUESS
 #check if the guess is correct
-  if [[ $GUESS =~ ^[0-9]+$ ]]
+  if [[ $GUESS -ge 1 && $GUESS -le 1000 ]]
    then
    if [[ $GUESS = $TARGET ]]
    then
@@ -47,11 +47,9 @@ while true; do
    echo "It's higher than that, guess again:"
    fi
   else
+  COUNT=$(($COUNT + 1))
    echo "That is not an integer, guess again:"
-  fi 
-
-  
+  fi  
 done
-
 }
 INFORMATION
